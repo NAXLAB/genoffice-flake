@@ -10,7 +10,11 @@ let
 in
 {
   options.programs.genoffice = {
-    enable = lib.mkEnableOption "GenOffice, an AI-native office suite";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Whether to install GenOffice. On by default once this module is imported.";
+    };
 
     package = lib.mkOption {
       type = lib.types.package;

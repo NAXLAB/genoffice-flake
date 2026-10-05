@@ -19,7 +19,6 @@ It wraps the upstream Linux AppImage. x86_64-linux only.
     nixosConfigurations.myhost = nixpkgs.lib.nixosSystem {
       modules = [
         genoffice.nixosModules.default
-        { programs.genoffice.enable = true; }
       ];
     };
   };

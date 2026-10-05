@@ -11,7 +11,7 @@ It wraps the upstream Linux AppImage. x86_64-linux only.
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    genoffice.url = "github:YOU/genoffice-flake";
+    genoffice.url = "github:NAXLAB/genoffice-flake";
     genoffice.inputs.nixpkgs.follows = "nixpkgs";
   };
 

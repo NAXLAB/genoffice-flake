@@ -34,6 +34,6 @@
         genoffice = final.callPackage ./package.nix { };
       };
 
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+      formatter.${system} = pkgs.nixfmt;
     };
 }

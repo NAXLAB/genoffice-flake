@@ -21,6 +21,14 @@ appimageTools.wrapType2 {
 
   nativeBuildInputs = [ makeWrapper ];
 
+  # Expose host fontconfig + system font dirs inside the FHS sandbox.
+  # (User fonts in ~/.local/share/fonts are already visible via $HOME.)
+  extraBwrapArgs = [
+    "--ro-bind-try /etc/fonts /etc/fonts"
+    "--ro-bind-try /run/current-system/sw/share/X11/fonts /run/current-system/sw/share/X11/fonts"
+    "--ro-bind-try /usr/share/fonts /usr/share/fonts"
+  ];
+
   extraInstallCommands = ''
     # Desktop entry + icon
     install -Dm444 ${appimageContents}/genoffice.desktop \

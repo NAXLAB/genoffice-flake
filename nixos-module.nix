@@ -27,7 +27,5 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    # Creates /run/current-system/sw/share/X11/fonts, which the sandboxed app binds.
-    fonts.fontDir.enable = true;
   };
 }

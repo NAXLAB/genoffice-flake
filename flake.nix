@@ -25,7 +25,10 @@
         program = "${self.packages.${system}.genoffice}/bin/genoffice";
       };
 
-      nixosModules.default = ./nixos-module.nix;
+      nixosModules.default = { lib, pkgs, ... }: {
+        imports = [ ./nixos-module.nix ];
+        programs.genoffice.package = lib.mkDefault self.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      };
 
       overlays.default = final: _prev: {
         genoffice = final.callPackage ./package.nix { };

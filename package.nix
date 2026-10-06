@@ -24,9 +24,8 @@ appimageTools.wrapType2 {
   # Expose host fontconfig + system font dirs inside the FHS sandbox.
   # (User fonts in ~/.local/share/fonts are already visible via $HOME.)
   extraBwrapArgs = [
-    "--ro-bind-try /etc/fonts /etc/fonts"
-    "--ro-bind-try /run/current-system/sw/share/X11/fonts /run/current-system/sw/share/X11/fonts"
-    "--ro-bind-try /usr/share/fonts /usr/share/fonts"
+    "--ro-bind-try ~/.local/share/fonts"
+
   ];
 
   extraInstallCommands = ''
